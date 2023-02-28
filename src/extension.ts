@@ -28,7 +28,7 @@ export function activate(context: vscode.ExtensionContext) {
 		selectedInsideCodeblock: config.get('selectedInsideCodeblock') || false,
 		pasteOnClick: config.get('pasteOnClick') || false,
 		maxTokens: config.get('maxTokens') || 500,
-		temperature: config.get('temperature') || 0.5,
+		temperature: config.get('temperature') || 0.2,
 		model: config.get('model') || 'text-davinci-003'
 	});
 	openAIService.setSettings({
@@ -350,7 +350,7 @@ class CodeGPTViewProvider implements vscode.WebviewViewProvider {
 				</style>
 			</head>
 			<body>
-				<input class="h-10 w-full text-white bg-stone-700 p-4 text-sm" placeholder="Ask GPT3 something" id="prompt-input" />
+				<input class="h-10 w-full text-white bg-stone-700 p-4 text-sm" placeholder="Ask Genie something" id="prompt-input" />
 				
 				<div id="response" class="pt-4 text-sm">
 				</div>

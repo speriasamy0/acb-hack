@@ -1,10 +1,10 @@
 {
   "name": "codegpt3",
-  "displayName": "CodeGPT: write and improve code using AI",
+  "displayName": "Genie: write and improve code using AI",
   "description": "Use GPT3 or ChatGPT right inside the IDE to enhance and automate your coding with AI-powered assistance",
   "version": "1.1.2",
   "publisher": "timkmecl",
-  "icon": "resources/extensionIcon.png",
+  "icon": "resources/genie.png",
   "license": "MIT",
   "repository": {
     "url": "https://github.com/timkmecl/codegpt"
@@ -40,27 +40,27 @@
     "commands": [
       {
         "command": "codegpt.ask",
-        "title": "Ask CodeGPT"
+        "title": "Genie: Ask me anything"
       },
       {
         "command": "codegpt.explain",
-        "title": "CodeGPT: Explain selection"
+        "title": "Genie: Explain selection"
       },
       {
         "command": "codegpt.refactor",
-        "title": "CodeGPT: Refactor selection"
+        "title": "Genie: Refactor selection"
       },
       {
         "command": "codegpt.findProblems",
-        "title": "CodeGPT: Find problems"
+        "title": "Genie: Find problems"
       },
       {
         "command": "codegpt.optimize",
-        "title": "CodeGPT: Optimize selection"
+        "title": "Genie: Optimize selection"
       },
       {
         "command": "codegpt.documentation",
-        "title": "CodeGPT: Write documentation"
+        "title": "Genie: Write documentation"
       },
       {
         "command": "codegpt.resetSession",
@@ -133,8 +133,8 @@
       "activitybar": [
         {
           "id": "codegpt",
-          "title": "CodeGPT",
-          "icon": "resources/icon.png"
+          "title": "Genie",
+          "icon": "resources/genie.png"
         }
       ]
     },
@@ -143,12 +143,12 @@
         {
           "type": "webview",
           "id": "codegpt.chatView",
-          "name": "CodeGPT"
+          "name": "Genie"
         }
       ]
     },
     "configuration": {
-      "title": "CodeGPT",
+      "title": "Genie",
       "type": "object",
       "properties": {
         "codegpt.apiKey": {

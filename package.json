@@ -40,7 +40,15 @@
     "commands": [
       {
         "command": "codegpt.ask",
-        "title": "Ask CodeGPT"
+        "title": "CodeGPT: Ask CodeGPT"
+      },
+      {
+        "command": "codegpt.askQuestion",
+        "title": "CodeGPT: Ask CodeGPT a specific question"
+      },
+      {
+        "command": "codegpt.askQuestionTest",
+        "title": "CodeGPT: Test Ask CodeGPT a specific question"
       },
       {
         "command": "codegpt.explain",

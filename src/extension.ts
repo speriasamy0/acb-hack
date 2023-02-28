@@ -48,6 +48,14 @@ export function activate(context: vscode.ExtensionContext) {
 			vscode.window.showInputBox({ prompt: 'What do you want to do?' })
 			.then((value) => provider.search(value))
 		),
+		vscode.commands.registerCommand('codegpt.askQuestion', (question: string) => 
+			provider.search(question)
+		),
+		vscode.commands.registerCommand('codegpt.askQuestionTest', () => {
+			vscode.window.showInformationMessage("testing...");
+			vscode.commands.executeCommand("codegpt.askQuestion","write a mule flow xml to fetch salesforce contacts");
+		}
+		),
 		vscode.commands.registerCommand('codegpt.explain', () => commandHandler('promptPrefix.explain')),
 		vscode.commands.registerCommand('codegpt.refactor', () => commandHandler('promptPrefix.refactor')),
 		vscode.commands.registerCommand('codegpt.optimize', () => commandHandler('promptPrefix.optimize')),
@@ -256,6 +264,7 @@ class CodeGPTViewProvider implements vscode.WebviewViewProvider {
 				}
 
 				response = completion.data.choices[0].text || '';
+				vscode.window.showInformationMessage(response)
 
 				// close unclosed codeblocks
 				// Use a regular expression to find all occurrences of the substring in the string

@@ -2,9 +2,10 @@ import * as vscode from 'vscode';
 import { Configuration, OpenAIApi } from 'openai';
 
 import createPrompt from './prompt';
+import { DefaultOpenAIService } from './openAIService';
 
 
-type AuthInfo = {apiKey?: string};
+export type AuthInfo = {apiKey?: string};
 export type Settings = {selectedInsideCodeblock?: boolean, pasteOnClick?: boolean, model?: string, maxTokens?: number, temperature?: number};
 
 
@@ -12,11 +13,14 @@ export function activate(context: vscode.ExtensionContext) {
 	
 	// Create a new CodeGPTViewProvider instance and register it with the extension's context
 	const provider = new CodeGPTViewProvider(context.extensionUri);
-	
+	const openAIService = new DefaultOpenAIService();
 	// Get the API session token from the extension's configuration
 	const config = vscode.workspace.getConfiguration('codegpt');
 	// Put configuration settings into the provider
 	provider.setAuthenticationInfo({
+		apiKey: config.get('apiKey')
+	})
+	openAIService.setAuthenticationInfo({
 		apiKey: config.get('apiKey')
 	});
 
@@ -27,7 +31,13 @@ export function activate(context: vscode.ExtensionContext) {
 		temperature: config.get('temperature') || 0.5,
 		model: config.get('model') || 'text-davinci-003'
 	});
-
+	openAIService.setSettings({
+		selectedInsideCodeblock: config.get('selectedInsideCodeblock') || false,
+		pasteOnClick: config.get('pasteOnClick') || false,
+		maxTokens: config.get('maxTokens') || 500,
+		temperature: config.get('temperature') || 0.5,
+		model: config.get('model') || 'text-davinci-003'
+	});
 	// Register the provider with the extension's context
 	context.subscriptions.push(
 		vscode.window.registerWebviewViewProvider(CodeGPTViewProvider.viewType, provider,  {
@@ -61,24 +71,31 @@ export function activate(context: vscode.ExtensionContext) {
 		if (event.affectsConfiguration('codegpt.apiKey')) {
 			const config = vscode.workspace.getConfiguration('codegpt');
 			provider.setAuthenticationInfo({ apiKey: config.get('apiKey') });
+			openAIService.setAuthenticationInfo({ apiKey: config.get('apiKey') });
 			console.log("API key changed");
 		} else if (event.affectsConfiguration('codegpt.selectedInsideCodeblock')) {
 			const config = vscode.workspace.getConfiguration('codegpt');
 			provider.setSettings({ selectedInsideCodeblock: config.get('selectedInsideCodeblock') || false });
+			openAIService.setSettings({ selectedInsideCodeblock: config.get('selectedInsideCodeblock') || false });
 		} else if (event.affectsConfiguration('codegpt.pasteOnClick')) {
 			const config = vscode.workspace.getConfiguration('codegpt');
 			provider.setSettings({ pasteOnClick: config.get('pasteOnClick') || false });
+			openAIService.setSettings({ pasteOnClick: config.get('pasteOnClick') || false });
 		} else if (event.affectsConfiguration('codegpt.maxTokens')) {
 			const config = vscode.workspace.getConfiguration('codegpt');
 			provider.setSettings({ maxTokens: config.get('maxTokens') || 500 });
+			openAIService.setSettings({ maxTokens: config.get('maxTokens') || 500 });
 		} else if (event.affectsConfiguration('codegpt.temperature')) {
 			const config = vscode.workspace.getConfiguration('codegpt');
 			provider.setSettings({ temperature: config.get('temperature') || 0.5 });
+			openAIService.setSettings({ temperature: config.get('temperature') || 0.5 });
 		} else if (event.affectsConfiguration('codegpt.model')) {
 			const config = vscode.workspace.getConfiguration('codegpt');
 			provider.setSettings({ model: config.get('model') || 'text-davinci-003' });
+			openAIService.setSettings({ model: config.get('model') || 'text-davinci-003' });
 		}
 	});
+	return openAIService;
 }
 
 

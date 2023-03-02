@@ -69,64 +69,10 @@
     ],
     "menus": {
       "editor/context": [
-        {
-          "command": "codegpt.ask",
-          "when": "editorTextFocus",
-          "group": "codegpt-menu-group@1"
-        },
-        {
-          "command": "codegpt.explain",
-          "when": "editorHasSelection",
-          "group": "codegpt-menu-group@2"
-        },
-        {
-          "command": "codegpt.refactor",
-          "when": "editorHasSelection",
-          "group": "codegpt-menu-group@3"
-        },
-        {
-          "command": "codegpt.findProblems",
-          "when": "editorHasSelection",
-          "group": "codegpt-menu-group@4"
-        },
-        {
-          "command": "codegpt.optimize",
-          "when": "editorHasSelection",
-          "group": "codegpt-menu-group@5"
-        },
-        {
-          "command": "codegpt.documentation",
-          "when": "editorHasSelection",
-          "group": "codegpt-menu-group@6"
-        }
+        
       ],
       "commandPalette": [
-        {
-          "command": "codegpt.ask"
-        },
-        {
-          "command": "codegpt.explain",
-          "when": "editorHasSelection"
-        },
-        {
-          "command": "codegpt.refactor",
-          "when": "editorHasSelection"
-        },
-        {
-          "command": "codegpt.findProblems",
-          "when": "editorHasSelection"
-        },
-        {
-          "command": "codegpt.optimize",
-          "when": "editorHasSelection"
-        },
-        {
-          "command": "codegpt.documentation",
-          "when": "editorHasSelection"
-        },
-        {
-          "command": "codegpt.resetSession"
-        }
+        
       ]
     },
     "viewsContainers": {

@@ -350,7 +350,7 @@ class CodeGPTViewProvider implements vscode.WebviewViewProvider {
 				</style>
 			</head>
 			<body>
-				<input class="h-10 w-full text-white bg-stone-700 p-4 text-sm" placeholder="Ask Genie something" id="prompt-input" />
+				<input class="h-10 w-full text-white bg-stone-700 p-4 text-sm" placeholder="Ask Mule AI something" id="prompt-input" />
 				
 				<div id="response" class="pt-4 text-sm">
 				</div>

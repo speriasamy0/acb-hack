@@ -1,10 +1,10 @@
 {
   "name": "codegpt3",
-  "displayName": "Genie: write and improve code using AI",
+  "displayName": "Mule AI: write and improve code using AI",
   "description": "Use GPT3 or ChatGPT right inside the IDE to enhance and automate your coding with AI-powered assistance",
   "version": "1.1.2",
   "publisher": "timkmecl",
-  "icon": "resources/genie.png",
+  "icon": "resources/muleai.png",
   "license": "MIT",
   "repository": {
     "url": "https://github.com/timkmecl/codegpt"
@@ -40,27 +40,27 @@
     "commands": [
       {
         "command": "codegpt.ask",
-        "title": "Genie: Ask me anything"
+        "title": "Mule AI: Ask me anything"
       },
       {
         "command": "codegpt.explain",
-        "title": "Genie: Explain selection"
+        "title": "Mule AI: Explain selection"
       },
       {
         "command": "codegpt.refactor",
-        "title": "Genie: Refactor selection"
+        "title": "Mule AI: Refactor selection"
       },
       {
         "command": "codegpt.findProblems",
-        "title": "Genie: Find problems"
+        "title": "Mule AI: Find problems"
       },
       {
         "command": "codegpt.optimize",
-        "title": "Genie: Optimize selection"
+        "title": "Mule AI: Optimize selection"
       },
       {
         "command": "codegpt.documentation",
-        "title": "Genie: Write documentation"
+        "title": "Mule AI: Write documentation"
       },
       {
         "command": "codegpt.resetSession",
@@ -79,8 +79,8 @@
       "activitybar": [
         {
           "id": "codegpt",
-          "title": "Genie",
-          "icon": "resources/genie.png"
+          "title": "Mule AI",
+          "icon": "resources/muleai.png"
         }
       ]
     },
@@ -89,12 +89,12 @@
         {
           "type": "webview",
           "id": "codegpt.chatView",
-          "name": "Genie"
+          "name": "Mule AI"
         }
       ]
     },
     "configuration": {
-      "title": "Genie",
+      "title": "Mule AI",
       "type": "object",
       "properties": {
         "codegpt.apiKey": {
